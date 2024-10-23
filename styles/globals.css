@@ -1,0 +1,129 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Tungsten:wght@500;700&display=swap');
+
+:root {
+  --valorant-red: #ff4655;
+  --valorant-blue: #0f1923;
+  --valorant-white: #ece8e1;
+  --valorant-gray: #768079;
+}
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background-color: var(--valorant-blue);
+  color: var(--valorant-white);
+  /* 删除或注释掉以下四行 */
+  /*
+  background-image: url('/valorant-bg.png');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  */
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Tungsten', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.container {
+  max-width: 1200px;
+}
+
+input[type="text"], textarea {
+  background-color: rgba(236, 232, 225, 0.05);
+  border: 1px solid var(--valorant-gray);
+  color: var(--valorant-white);
+  transition: all 0.3s ease;
+}
+
+input[type="text"]:focus, textarea:focus {
+  border-color: var(--valorant-red);
+  box-shadow: 0 0 0 2px rgba(255, 70, 85, 0.2);
+}
+
+button {
+  background-color: var(--valorant-red);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+button::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 5px;
+  height: 5px;
+  background: rgba(255, 255, 255, 0.5);
+  opacity: 0;
+  border-radius: 100%;
+  transform: scale(1, 1) translate(-50%);
+  transform-origin: 50% 50%;
+}
+
+button:hover::after {
+  animation: ripple 1s ease-out;
+}
+
+@keyframes ripple {
+  0% {
+    transform: scale(0, 0);
+    opacity: 0.5;
+  }
+  20% {
+    transform: scale(25, 25);
+    opacity: 0.3;
+  }
+  100% {
+    opacity: 0;
+    transform: scale(40, 40);
+  }
+}
+
+.image-upload {
+  border: 2px dashed var(--valorant-gray);
+  background-color: rgba(236, 232, 225, 0.03);
+  transition: all 0.3s ease;
+}
+
+.image-upload:hover {
+  border-color: var(--valorant-red);
+  background-color: rgba(236, 232, 225, 0.05);
+}
+
+.result-box {
+  background-color: rgba(15, 25, 35, 0.8);
+  border: 1px solid var(--valorant-gray);
+  backdrop-filter: blur(10px);
+}
+
+.glassmorphism {
+  background: rgba(15, 25, 35, 0.7);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(236, 232, 225, 0.1);
+}
+
+@media (max-width: 768px) {
+  body {
+    font-size: 14px;
+  }
+
+  .container {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .glassmorphism {
+    padding: 16px;
+  }
+
+  .image-upload {
+    height: 200px;
+  }
+}
